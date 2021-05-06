@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background: rgb(80, 76, 76);
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            height: 90vh;
+            align-items: center;
+        }
+        div{
+            font-size: 15vw;
+        }
+        .sp{
+            margin: 0 .5em 0 .5em;
+        }
+    </style>
+    <title>Clock</title>
+</head>
+<body>
+    <div id="hours"></div>
+    <div class="sp">:</div>
+    <div id="mins"></div>
+    <div class="sp">:</div>
+    <div id="secs"></div>
+    <script>
+        const hours = document.getElementById('hours')
+        const mins = document.getElementById('mins')
+        const secs = document.getElementById('secs')
+        
+        function func(){
+            const currentDate = new Date()
+            hours.innerHTML = currentDate.getHours()<10 ? '0'+currentDate.getHours() : currentDate.getHours()
+            mins.innerHTML = currentDate.getMinutes()<10 ? '0'+currentDate.getMinutes() : currentDate.getMinutes()
+            secs.innerHTML = currentDate.getSeconds()<10 ? '0'+currentDate.getSeconds() : currentDate.getSeconds()
+        }
+        func()
+        setInterval(func,1000)
+    </script>
+</body>
+</html>
